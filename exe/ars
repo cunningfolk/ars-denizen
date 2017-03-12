@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+require "rubygems"
+require 'bundler/setup'
+
+require 'ars/denizen'
+options = Ars::Denizen::FileOptions.load_options(:local)
+p ARGV
+p options = options.map{|k, v| ["--#{k}", v] }.flatten
+ Ars::Denizen::CLI.start(ARGV + options)
